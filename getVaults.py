@@ -2,10 +2,32 @@
 ## 
 #
 # Simple report on logical used 
-# and physical used space
-# should evolve more, just 
+# and physical used space.
+# It should evolve more, just 
 # basic report for now.
-#
+##
+# [blakegolliher@admin001 cleversafe-code]$ ./getVaults.py
+# Password:
+# Vault name: avault.
+#   logical space used: 0 bytes.
+#   physical space used: 0 bytes.
+# Vault name: avault1.
+#   logical space used: 0 bytes.
+#   physical space used: 0 bytes.
+# Vault name: avault2.
+#   logical space used: 0 bytes.
+#   physical space used: 0 bytes.
+# Vault name: avault3.
+#   logical space used: 0 bytes.
+#   physical space used: 0 bytes.
+# Vault name: avault4.
+#   logical space used: 0 bytes.
+#   physical space used: 0 bytes.
+# Vault name: avault5.
+#   logical space used: 0 bytes.
+#   physical space used: 0 bytes.
+# [blakegolliher@admin001 cleversafe-code]$
+##
 # blake golliher
 # blakegolliher@gmail.com
 #
