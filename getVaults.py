@@ -1,32 +1,9 @@
 #!/usr/bin/python
 ##
-#
 # Simple report on logical used
 # and physical used space.
 # It should evolve more, just
 # basic report for now.
-##
-# [blakegolliher@admin001 cleversafe-code]$ ./getVaults.py
-# Password:
-# Vault name: avault.
-#   logical space used: 0 bytes.
-#   physical space used: 0 bytes.
-# Vault name: avault1.
-#   logical space used: 0 bytes.
-#   physical space used: 0 bytes.
-# Vault name: avault2.
-#   logical space used: 0 bytes.
-#   physical space used: 0 bytes.
-# Vault name: avault3.
-#   logical space used: 0 bytes.
-#   physical space used: 0 bytes.
-# Vault name: avault4.
-#   logical space used: 0 bytes.
-#   physical space used: 0 bytes.
-# Vault name: avault5.
-#   logical space used: 0 bytes.
-#   physical space used: 0 bytes.
-# [blakegolliher@admin001 cleversafe-code]$
 ##
 # blake golliher
 # blakegolliher@gmail.com
@@ -46,7 +23,7 @@ def sizeof_fmt(num):
 
 password = getpass.getpass()
 
-request = urllib2.Request("https://17.176.156.23/manager/api/json/1.0/listVaults.adm")
+request = urllib2.Request("https://dsnet.manager/manager/api/json/1.0/listVaults.adm")
 request.add_header('Accept', 'application/json')
 base64string = base64.encodestring('%s:%s' % ('admin',password)).replace('\n', '')
 request.add_header("Authorization", "Basic %s" % base64string)
@@ -57,13 +34,16 @@ data = json.load(result)
 names = []
 logusedspace = []
 phyusedspace = []
+estusedspace = []
 
 for x in data['responseData']['vaults']:
         names.append(x['name'])
         logusedspace.append(x['usedLogicalSizeFromStorage'])
         phyusedspace.append(x['usedPhysicalSizeFromStorage'])
+	estusedspace.append(x['estimateUsableTotalLogicalSizeFromStorage'])
 
-for name,log,phy in zip(names, logusedspace, phyusedspace):
-        print colorred.format("Vault name: ") + name
-        print colorgrn.format("  logical space used: ") + sizeof_fmt(log)
-        print colorgrn.format("  physical space used: ") + sizeof_fmt(phy)
+for name,log,phy,est in zip(names, logusedspace, phyusedspace, estusedspace):
+        print colorred.format("\nVault name: 			") + name
+        print colorgrn.format("  logical space used: 		") + sizeof_fmt(log)
+        print colorgrn.format("  physical space used: 		") + sizeof_fmt(phy)
+	    print colorgrn.format("  estimated logical space used: ") + sizeof_fmt(est) + "\n"
