@@ -16,12 +16,12 @@ usage = """
 Usage: ./getVaults.py manager name (or ip)
 e.g ./getVaults.py dsnet.manager
 
-Vault name: 			itms8
+Vault name: 			vault8
   logical space used: 		428.7 GB
   physical space used: 		428.7 GB
   estimated logical space used: 216.6 TB
 
-Vault name: 			itms7
+Vault name: 			vault7
   logical space used: 		300.4 GB
   physical space used: 		300.4 GB
   estimated logical space used: 216.6 TB
