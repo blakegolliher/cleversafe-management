@@ -7,7 +7,6 @@
 ##
 # blake golliher
 # blakegolliher@gmail.com
-#
 ##
 
 import json, urllib2, os, base64, getpass, sys
