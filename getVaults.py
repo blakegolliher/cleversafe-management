@@ -51,14 +51,20 @@ data = json.load(result)
 names = []
 phyusedspace = []
 estusedspace = []
+phytotal = 0
+logtotal = 0
 
 for item in data['responseData']['vaults']:
         names.append(item['name'])
         phyusedspace.append(item['usedPhysicalSizeFromStorage'])
         estusedspace.append(item['estimateUsableUsedLogicalSizeFromStorage'])
+	      logtotal = logtotal + item['estimateUsableUsedLogicalSizeFromStorage']
+	      phytotal = phytotal + item['usedPhysicalSizeFromStorage']
 
 for name,phy,est in zip(names, phyusedspace, estusedspace):
         print "\nVault name: %s " % name
         print "  space used on disk: 		%s " % sizeof_fmt(phy)
         print "  space used to the app :	%s " % str(sizeof_fmt(est))
-print "\n"
+
+print "\nTotal physical space on disk :		%s " % sizeof_fmt(phytotal)
+print "Total logical space used by the app :	%s \n" % sizeof_fmt(logtotal)
