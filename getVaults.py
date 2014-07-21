@@ -55,11 +55,11 @@ phytotal = 0
 logtotal = 0
 
 for item in data['responseData']['vaults']:
-        names.append(item['name'])
-        phyusedspace.append(item['usedPhysicalSizeFromStorage'])
-        estusedspace.append(item['estimateUsableUsedLogicalSizeFromStorage'])
-	      logtotal = logtotal + item['estimateUsableUsedLogicalSizeFromStorage']
-	      phytotal = phytotal + item['usedPhysicalSizeFromStorage']
+    names.append(item['name'])
+    phyusedspace.append(item['usedPhysicalSizeFromStorage'])
+    estusedspace.append(item['estimateUsableUsedLogicalSizeFromStorage'])
+    logtotal = logtotal + item['estimateUsableUsedLogicalSizeFromStorage']
+    phytotal = phytotal + item['usedPhysicalSizeFromStorage']
 
 for name,phy,est in zip(names, phyusedspace, estusedspace):
         print "\nVault name: %s " % name
